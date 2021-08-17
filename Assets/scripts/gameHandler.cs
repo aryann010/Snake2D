@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class gameHandler : MonoBehaviour
 {
-    [SerializeField] private snakeController snake;
-    private LevelGrid levelGrid;
-    // Start is called before the first frame update
+    private levelGrid levelGridInstance;
+    [SerializeField] private snakeController snakeI;
+
     void Start()
     {
-     
-        levelGrid = new LevelGrid(20, 20);
-        snake.setup(levelGrid);
-        levelGrid.setup(snake);
-    }
-    
-    
-        
-    
+        levelGridInstance = new levelGrid(20, 20);
+        snakeI.setup(levelGridInstance);
+        levelGridInstance.Setup(snakeI);
 
-    
+        levelGridInstance.spawnMassGainer();
+        levelGridInstance.spawnMassBurner();
+    }
+
 }
